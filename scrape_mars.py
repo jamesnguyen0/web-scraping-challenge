@@ -40,13 +40,13 @@ def news(browser):
     nasa_soup = BeautifulSoup(html, 'html.parser')
     
     # Retrieve the latest element that contains news title and news_paragraph
-    results = nasa_soup.find_all('li', class_="slide")[0]
+    results = nasa_soup.find_all('li', class_="slide")
 
     # scrape the article title 
-    news_title = results.find('div', class_='content_title').text
+    news_title = results[0].find('div', class_='content_title').text
 
     # scrape the article paragraph
-    news_p = results.find('div', class_='article_teaser_body').text
+    news_p = results[0].find('div', class_='article_teaser_body').text
 
     return news_title, news_p
 
