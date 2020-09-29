@@ -17,12 +17,81 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">LET'S FUCKING GO</a></p>
     </div>
     
-    <h2>{{mars_stuff.mars_news}}</h2>
-    <p>{{mars_stuff.mars_text}}</p>
+    
+    <div class="row">
+      <div class="col-md-8">
+          <div class="col-md-12">
+              <!-- Mars Image -->
+              <h2>Featured Mars Image</h2>
+              <hr>
+  
+              <div class="thumbnail">
+                  <img class="img-thumbnail float-left mr-3" src={{mars_stuff.featured_image}} width="100%" alt="mars_image">
+              </div>
+          </div>
+      </div>
+  
+      <!--Mars Facts Table-->
+      <div class="col-md-4">
+          <div class="col-md-4">
+              <h2>Mars Facts</h2>
+              <hr>
+              <div class="row">
+                {{ mars_stuff.mars_facts | safe }}
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Mars News -->
+        <h2>Latest Mars News</h2>
+        <hr>
+        <h3>{{mars_stuff.mars_news}}</h3>
+        <p>{{mars_stuff.mars_text}}</p>
+      </div>
+    </div>
+<!--Mars Hemispheres-->
+    
+    <div class="row">
+      
+      <div class="col-md-12">
+      <h2>Mars Hemispheres</h2>
+      <hr>
+        <div class="col-md-4 border">
+          <div class="thumbnail">
+            <a href={{ mars_stuff.mars_hems[0].image }}><img src={{ mars_stuff.mars_hems[0].image }} alt={{ mars_stuff.mars_hems[0].title }} width="100%"></a> 
+            <div class="caption center-block">{{ mars_stuff.mars_hems[0].title }}</div>
+          </div>
+        </div>
+        <div class="col-md-4 border">
+          <div class="thumbnail">
+            <a href={{ mars_stuff.mars_hems[1].image }}><img src={{ mars_stuff.mars_hems[1].image }} alt={{ mars_stuff.mars_hems[1].title }} width="100%"></a> 
+            <div class="caption center-block">{{ mars_stuff.mars_hems[1].title }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4 border">
+          <div class="thumbnail">
+            <a href={{ mars_stuff.mars_hems[0].image }}><img src={{ mars_stuff.mars_hems[2].image }} alt={{ mars_stuff.mars_hems[2].title }} width="100%"></a> 
+            <div class="caption center-block">{{ mars_stuff.mars_hems[2].title }}</div>
+          </div>
+        </div>
+        <div class="col-md-4 border">
+          <div class="thumbnail">
+            <a href={{ mars_stuff.mars_hems[1].image }}><img src={{ mars_stuff.mars_hems[3].image }} alt={{ mars_stuff.mars_hems[3].title }} width="100%"></a> 
+            <div class="caption center-block">{{ mars_stuff.mars_hems[3].title }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </div>
-  </div>
 </body>
 
 </html>

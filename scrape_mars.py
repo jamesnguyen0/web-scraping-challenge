@@ -11,14 +11,13 @@ def browser_init():
 
 def scrape():
     browser = browser_init()
+    data = {}
     
     news_title, news_p = news(browser)
     featured_image_url = image(browser)
     mars_facts = facts()
     hems_list = hemispheres(browser)
-    
-    data = {}
-
+       
     data["mars_news"] = news_title
     data["mars_text"] = news_p
 
@@ -70,7 +69,7 @@ def image(browser):
 def facts():
     mars_facts = pd.read_html('https://space-facts.com/mars/')[0]
     mars_facts.columns=["Description", "Data"]
-    mars_facts.set_index("Description", inplace=False)
+    mars_facts.set_index("Description", inplace=True)
 
     return mars_facts.to_html()
 
